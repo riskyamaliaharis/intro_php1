@@ -7,17 +7,16 @@ if (isset($_GET['id_update'])){
 }
 
 $detail = detail($id);
-var_dump($detail);
 
-// if (isset($_POST['btn_update'])){
-//     $data = [
-//         'name' => $_POST['name'],
-//         'description' => $_POST['description'],
-//         'price' => $_POST['price'],
-//         'stock' => $_POST['stock']
-//     ];
-//     update($data, $id);
-// }
+if (isset($_POST['btn_update'])){
+    $data = [
+        'name' => $_POST['name'],
+        'description' => $_POST['description'],
+        'price' => $_POST['price'],
+        'stock' => $_POST['stock']
+    ];
+    update($data, $id);
+}
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +43,7 @@ var_dump($detail);
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea name="description" value="<?=$detail['description']?>" class="form-control" id="description" placeholder="Description"></textarea>
+                <textarea name="description" class="form-control" id="description" placeholder="Description"><?=$detail['description']?></textarea>
             </div>
 
             <div class="mb-3">
@@ -54,11 +53,11 @@ var_dump($detail);
 
             <div class="mb-3">
                 <label for="stock" class="form-label">Stock</label>
-                <input type="number" class="form-control" value="<?=$detail['stock']?>" id="stock" rows="3" placeholder="Stock"/>
+                <input type="number" class="form-control" value="<?=$detail['stock']?>" name="stock" id="stock" rows="3" placeholder="Stock"/>
             </div>
 
             <div style="text-align:right;">
-             <button type="submit" name="btn_update"  class="btn btn-warning">Add Product</button>
+             <button type="submit" name="btn_update"  class="btn btn-warning">Update Product</button>
             </div>
         </form>
     </div>

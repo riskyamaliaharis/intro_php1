@@ -14,7 +14,9 @@ getList();
 </head>
 <body>
     <div class="container">
-
+    <div style="text-align:right; margin: 50px 0 20px 0">
+    <a href='../view/insertProduct.php' class="btn btn-info">Insert New Product</a>
+    </div>
     <table class="table table-dark">
         <thead>
             <tr>
@@ -45,6 +47,7 @@ getList();
             ?>
         </tbody>
     </table>
+    
     </div>
     
 </body>

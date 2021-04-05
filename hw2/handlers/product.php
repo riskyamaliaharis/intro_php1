@@ -51,6 +51,17 @@ function detail($id){
 
 function update($data, $id){
     global $conn;
-    $update = $conn->query("UPDATE FROM tbl_products ()");
+
+    $name = $conn->real_escape_string($data['name']);
+    $desc = $conn->real_escape_string($data['description']);
+    $price = $conn->real_escape_string($data['price']);
+    $stock = $conn->real_escape_string($data['stock']);
+
+    $update = $conn->query("UPDATE tbl_products SET name='$name', description='$desc', price='$price', stock='$stock' WHERE id='$id'");
+
+    if(!$update) die("Failed to update");
+    echo "product updated <br />
+         <a href='../view/showProducts.php'>Back</a>";
+
 }
 ?>
